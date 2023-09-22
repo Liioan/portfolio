@@ -1,8 +1,16 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
-	theme: {
-		extend: {},
-	},
-	plugins: [],
-}
+  content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
+  theme: {
+    extend: {
+      colors: {
+        background: '#111111',
+        primary: '#26C9DF',
+        accent: '#1348B0',
+        text: '#F5F5F5',
+      },
+      background: 'linear-gradient(165deg, #20c4d9, #1348b0)',
+    },
+  },
+  plugins: [],
+};
