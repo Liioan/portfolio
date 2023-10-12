@@ -1,9 +1,29 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import Layout from "../layouts/Layout.astro";
 ---
 
+<style is:global>
+  @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Source+Code+Pro:wght@600;700&display=swap");
+</style>
+
 <Layout title="David Bijok">
-	<main class="h-screen bg-background">
-		
-	</main>
+  <main
+    class="relative flex h-screen items-center justify-center before:absolute before:left-0 before:top-0 before:-z-10 before:h-full before:w-full before:bg-[url('/hero_gradient.png')] before:content-[''] after:absolute after:left-0 after:top-0 after:-z-10 after:h-full after:w-full after:bg-[url('/waves.png')] after:content-[''] xl:justify-start xl:px-[220px]"
+  >
+    <header
+      class="relative -translate-y-10 text-text before:absolute before:left-0 before:-translate-x-6 before:-translate-y-4 before:font-content before:opacity-50 before:content-['<h1>'] after:absolute after:right-0 after:translate-x-6 after:font-content after:opacity-50 after:content-['</h1>'] lg:before:-translate-x-[52px] lg:after:left-0 lg:after:-translate-x-14"
+    >
+      <h1
+        class="relative flex flex-col font-bold before:absolute before:hidden before:h-[90%] before:w-[2px] before:-translate-x-8 before:translate-y-[5%] before:bg-white before:opacity-50 before:content-[''] lg:before:block"
+      >
+        <span class="text-[32px] sm:text-[44px] lg:text-[64px]"> Hi!</span>
+        <span class="text-[48px] sm:text-[76px] lg:text-[96px]">
+          I'm David,</span
+        >
+        <span class="text-[32px] sm:text-[44px] lg:text-[64px]">
+          a frontend developer</span
+        >
+      </h1>
+    </header>
+  </main>
 </Layout>

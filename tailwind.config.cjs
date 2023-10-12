@@ -10,6 +10,10 @@ module.exports = {
         text: '#F5F5F5',
       },
       background: 'linear-gradient(165deg, #20c4d9, #1348b0)',
+      fontFamily: {
+        heading: 'Montserrat',
+        content: 'Source Code Pro',
+      },
     },
   },
   plugins: [],
