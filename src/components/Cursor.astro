@@ -1,0 +1,56 @@
+<script>
+  const cursor = document.querySelector(".cursor") as HTMLElement;
+  const cursorinner = document.querySelector(".cursor2") as HTMLElement;
+
+  if (cursor != null && cursorinner != null) {
+    document.addEventListener("mousemove", function (e) {
+      const x = e.clientX;
+      const y = e.clientY;
+      cursor.style.transform = `translate3d(calc(${e.clientX}px - 50%), calc(${e.clientY}px - 50%), 0)`;
+    });
+
+    document.addEventListener("mousemove", function (e) {
+      const x = e.clientX;
+      const y = e.clientY;
+      cursorinner.style.left = x + "px";
+      cursorinner.style.top = y + "px";
+    });
+
+    document.addEventListener("mousedown", function () {
+      cursor.classList.add("click");
+      cursorinner.classList.add("cursorinnerhover");
+    });
+
+    document.addEventListener("mouseup", function () {
+      cursor.classList.remove("click");
+      cursorinner.classList.remove("cursorinnerhover");
+    });
+  }
+</script>
+
+<style>
+  .cursor {
+    transition:
+      transform 0.5s cubic-bezier(0, 0.57, 0.57, 0.92),
+      width 0.2s ease,
+      height 0.2s ease,
+      opacity 0.2s ease;
+    transform: translate(calc(-50% + 15px), -50%);
+  }
+
+  .cursor2 {
+    transition:
+      width 0.3s,
+      height 0.3s,
+      opacity 0.3s;
+  }
+</style>
+
+<div
+  class="cursor my-transition pointer-events-none fixed left-0 top-0 z-10 h-[45px] w-[45px] rounded-full border-2 border-primary"
+>
+</div>
+<div
+  class="cursor2 pointer-events-none fixed z-10 h-[20px] w-[20px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary opacity-30"
+>
+</div>
