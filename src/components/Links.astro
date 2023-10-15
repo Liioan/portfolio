@@ -30,7 +30,7 @@ const links: Link[] = [
       <li>
         <MagneticButton
           className="icon hide-cursor flex h-[50px] w-[50px] items-center justify-center rounded-full opacity-50 transition-colors duration-200 hover:bg-primary hover:opacity-100"
-          client:load
+          client:only
         >
           <a href={link.url}>
             <img src={link.img} alt={link.alt} />
