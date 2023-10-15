@@ -1,14 +1,13 @@
 import { useRef, type ReactNode, useEffect } from "react";
 import { TweenMax, Power4 } from "gsap";
 
-
 interface MagneticButtonProps {
-  className: string;
+  className?: string;
   children: ReactNode;
 }
 
-const MagneticButton = ({className, children}: MagneticButtonProps) => {
-  const buttonRef = useRef<any>()
+const MagneticButton = ({ className = "", children }: MagneticButtonProps) => {
+  const buttonRef = useRef<any>();
 
   useEffect(() => {
     const strength = 50;
@@ -29,13 +28,13 @@ const MagneticButton = ({className, children}: MagneticButtonProps) => {
     buttonRef.current.addEventListener("mouseout", (e: Event) => {
       TweenMax.to(e.currentTarget, 1, { x: 0, y: 0, ease: Power4.easeOut });
     });
-  })
-  
+  });
+
   return (
     <button className={`magnet ${className}`} ref={buttonRef}>
       {children}
     </button>
-  )
-}
+  );
+};
 
 export default MagneticButton;
