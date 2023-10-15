@@ -36,25 +36,25 @@ const NavButton = ({ isOpen, setIsOpen }: NavButtonProps) => {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            className="absolute left-0 top-0"
+            className="absolute left-0 top-0 z-20"
             initial={{ y: -10, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: -10, opacity: 0 }}
           >
-            <ChevronDown size={48} color="white" />
+            <ChevronDown size={32} color="#26C9DF" />
           </motion.div>
         )}
       </AnimatePresence>
       <AnimatePresence>
         <motion.div
-          className="absolute left-0 top-0"
+          className="absolute left-0 top-0 z-10"
           animate={{
             y: isOpen ? -10 : 0,
             opacity: isOpen ? 0.5 : 1,
             scale: isOpen ? 0.5 : 1,
           }}
         >
-          <Menu size={48} color="white" />
+          <Menu size={32} color="#888" />
         </motion.div>
       </AnimatePresence>
     </button>
@@ -64,7 +64,32 @@ const NavButton = ({ isOpen, setIsOpen }: NavButtonProps) => {
 const MobileNav = () => {
   const [isOpen, setIsOpen] = useState(false);
 
-  return <NavButton isOpen={isOpen} setIsOpen={setIsOpen} />;
+  return (
+    <div className="relative">
+      <NavButton isOpen={isOpen} setIsOpen={setIsOpen} />
+      <AnimatePresence>
+        {isOpen && (
+          <motion.ul
+            className="absolute right-0 flex w-min flex-col justify-end rounded-[20px] bg-background px-6 py-4"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+          >
+            {anchors.map((anchor) => (
+              <li
+                key={anchor}
+                className="hide-cursor flex w-full justify-end text-3xl font-semibold text-white transition-opacity duration-200"
+              >
+                <MagneticButton>
+                  <a href={`#${anchor}`}>{anchor}</a>
+                </MagneticButton>
+              </li>
+            ))}
+          </motion.ul>
+        )}
+      </AnimatePresence>
+    </div>
+  );
 };
 
 const Nav = () => {
@@ -84,7 +109,11 @@ const Nav = () => {
 
   return (
     <nav className="fixed left-0 top-0 z-20 flex w-full justify-between p-[30px]">
-      <img src="/logo.png" alt="" className="h-[67px] w-[67px]" />
+      <img
+        src="/logo.png"
+        alt=""
+        className="h-[47px] w-[47px] sm:h-[67px] sm:w-[67px]"
+      />
       {isMobile ? <MobileNav /> : <DesktopNav />}
     </nav>
   );
