@@ -2,21 +2,45 @@ import { ChevronDown, Menu } from "lucide-react";
 import { useEffect, useState, type SetStateAction, type Dispatch } from "react";
 import MagneticButton from "./MagneticButton";
 import { AnimatePresence, motion } from "framer-motion";
+import Lenis from "@studio-freight/lenis";
 
 const anchors = ["about", "toolbox", "projects", "contact"];
+
+interface AnchorProps {
+  text: string;
+}
+
+const Anchor = ({ text }: AnchorProps) => {
+  const lenis = new Lenis();
+
+  function raf(time: any) {
+    lenis.raf(time);
+    requestAnimationFrame(raf);
+  }
+
+  requestAnimationFrame(raf);
+
+  return (
+    <li className="hide-cursor flex w-full justify-end text-[32px] font-semibold text-white opacity-50 transition-opacity duration-200 hover:opacity-100">
+      <MagneticButton>
+        <a
+          // href={`#${text}`}
+          onClick={() => {
+            lenis.scrollTo(`#${text}`);
+          }}
+        >
+          {text}
+        </a>
+      </MagneticButton>
+    </li>
+  );
+};
 
 const DesktopNav = () => {
   return (
     <ul className="flex w-min flex-col justify-end">
       {anchors.map((anchor) => (
-        <li
-          key={anchor}
-          className="hide-cursor flex w-full justify-end text-[32px] font-semibold text-white opacity-50 transition-opacity duration-200 hover:opacity-100"
-        >
-          <MagneticButton>
-            <a href={`#${anchor}`}>{anchor}</a>
-          </MagneticButton>
-        </li>
+        <Anchor text={anchor} key={anchor} />
       ))}
     </ul>
   );
