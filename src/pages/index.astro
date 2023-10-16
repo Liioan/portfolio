@@ -22,18 +22,6 @@ import Heading from "../components/Heading.astro";
   }
 </style>
 
-<script>
-  import Lenis from "@studio-freight/lenis";
-  const lenis = new Lenis();
-
-  function raf(time: any) {
-    lenis.raf(time);
-    requestAnimationFrame(raf);
-  }
-
-  requestAnimationFrame(raf);
-</script>
-
 <Layout title="David Bijok">
   <main
     class="relative flex h-screen items-center justify-center before:absolute before:left-0 before:-z-10 before:h-full before:w-full before:animate-fadeIn before:bg-[url('/hero_gradient.png')] before:bg-cover before:bg-center before:bg-no-repeat before:content-[''] after:absolute after:left-0 after:top-0 after:-z-10 after:h-full after:w-full after:bg-[url('/waves.png')] after:bg-cover after:bg-center after:content-[''] lg:before:bg-contain xl:justify-start xl:px-[220px]"

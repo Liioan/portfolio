@@ -2,7 +2,7 @@ import { ChevronDown, Menu } from "lucide-react";
 import { useEffect, useState, type SetStateAction, type Dispatch } from "react";
 import MagneticButton from "./MagneticButton";
 import { AnimatePresence, motion } from "framer-motion";
-import Lenis from "@studio-freight/lenis";
+import { useLenis } from "../utils/lenis";
 
 const anchors = ["about", "toolbox", "projects", "contact"];
 
@@ -11,20 +11,13 @@ interface AnchorProps {
 }
 
 const Anchor = ({ text }: AnchorProps) => {
-  const lenis = new Lenis();
-
-  function raf(time: any) {
-    lenis.raf(time);
-    requestAnimationFrame(raf);
-  }
-
-  requestAnimationFrame(raf);
+  const { lenis } = useLenis();
 
   return (
     <li className="hide-cursor flex w-full justify-end text-[32px] font-semibold text-white opacity-50 transition-opacity duration-200 hover:opacity-100">
       <MagneticButton>
         <a
-          // href={`#${text}`}
+          href={`#${text}`}
           onClick={() => {
             lenis.scrollTo(`#${text}`);
           }}
