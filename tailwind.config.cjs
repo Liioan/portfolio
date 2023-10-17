@@ -23,6 +23,9 @@ module.exports = {
       animation: {
         fadeIn: "fadeIn 5s",
       },
+      gridTemplateRows: {
+        myGrid: "repeat(auto-fill, minmax(150px, 1fr))",
+      },
     },
   },
   plugins: [],

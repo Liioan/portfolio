@@ -1,6 +1,8 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Heading from "../components/Heading.astro";
+import Section from "../layouts/Section.astro";
+import Toolbox from "../components/Toolbox.astro";
 ---
 
 <style is:global>
@@ -8,6 +10,10 @@ import Heading from "../components/Heading.astro";
 
   * {
     cursor: none !important;
+  }
+
+  .outline {
+    outline: 4px solid rgba(0, 255, 0, 0.3);
   }
 
   body:has(.hide-cursor:hover) .cursor {
@@ -42,10 +48,7 @@ import Heading from "../components/Heading.astro";
       </h1>
     </header>
   </main>
-  <section
-    class="flex h-screen flex-col items-center gap-20 overflow-x-clip pt-24 xl:items-start xl:px-[220px] 2xl:justify-center 2xl:gap-0"
-    id="about"
-  >
+  <Section id="about">
     <Heading>About</Heading>
     <div
       class="flex flex-col items-center justify-center gap-20 2xl:flex-row 2xl:gap-60"
@@ -69,5 +72,11 @@ import Heading from "../components/Heading.astro";
         />
       </div>
     </div>
-  </section>
+  </Section>
+  <Section id="toolbox">
+    <Heading>Toolbox</Heading>
+    <div class="mt-[85px] flex w-full items-center justify-center">
+      <Toolbox />
+    </div>
+  </Section>
 </Layout>
