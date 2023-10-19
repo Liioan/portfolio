@@ -93,14 +93,7 @@ const MobileNav = () => {
             exit={{ opacity: 0 }}
           >
             {anchors.map((anchor) => (
-              <li
-                key={anchor}
-                className="hide-cursor flex w-full justify-end text-3xl font-semibold text-white transition-opacity duration-200"
-              >
-                <MagneticButton>
-                  <a href={`#${anchor}`}>{anchor}</a>
-                </MagneticButton>
-              </li>
+              <Anchor key={anchor} text={anchor} />
             ))}
           </motion.ul>
         )}
