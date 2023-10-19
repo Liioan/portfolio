@@ -110,11 +110,11 @@ const projects = [
   <Section id="projects">
     <Heading>Projects</Heading>
     <div
-      class="relative flex w-full flex-col items-center justify-center gap-[30px] after:absolute after:left-0 after:top-0 after:-z-10 after:h-full after:w-full after:-translate-y-[250px] after:scale-110 after:bg-[url('/gradient.png')] after:bg-contain after:bg-center after:bg-no-repeat after:opacity-40 after:content-[''] md:flex-wrap lg:gap-[20px] 2xl:mt-[85px] 2xl:flex-row 2xl:after:-translate-x-[200px] 2xl:after:translate-y-[100px] 2xl:after:scale-150"
+      class="relative flex w-full flex-col items-center justify-center gap-[30px] after:absolute after:left-0 after:top-0 after:-z-10 after:h-full after:w-full after:-translate-y-[250px] after:scale-110 after:bg-[url('/gradient.png')] after:bg-contain after:bg-center after:bg-no-repeat after:opacity-40 after:content-[''] md:flex-row md:flex-wrap lg:gap-[20px] 2xl:mt-[85px] 2xl:after:-translate-x-[200px] 2xl:after:translate-y-[100px] 2xl:after:scale-150"
     >
       {
         projects.map((project) => (
-          <div class="flex max-w-md flex-col justify-between gap-10 rounded-[20px] border-2 border-[#f5f5f5a0] bg-gradient-to-br from-[#f5f5f50f] p-10">
+          <div class="flex min-h-[480px] max-w-md flex-col justify-between gap-10 rounded-[20px] border-2 border-[#f5f5f5a0] bg-gradient-to-br from-[#f5f5f50f] p-10">
             <div class="flex flex-col gap-2">
               <h2 class="text-[40px] font-bold text-white">{project.title}</h2>
               <h3 class="text-[20px] font-semibold text-primary">
