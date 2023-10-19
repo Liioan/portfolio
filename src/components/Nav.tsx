@@ -48,12 +48,12 @@ const NavButton = ({ isOpen, setIsOpen }: NavButtonProps) => {
   return (
     <button
       onClick={() => setIsOpen((prev) => !prev)}
-      className="relative h-12 w-12"
+      className="relative flex h-12 w-12 items-center justify-center"
     >
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            className="absolute left-0 top-0 z-20"
+            className="absolute z-20"
             initial={{ y: -10, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: -10, opacity: 0 }}
@@ -64,7 +64,7 @@ const NavButton = ({ isOpen, setIsOpen }: NavButtonProps) => {
       </AnimatePresence>
       <AnimatePresence>
         <motion.div
-          className="absolute left-0 top-0 z-10"
+          className="absolute z-10"
           animate={{
             y: isOpen ? -10 : 0,
             opacity: isOpen ? 0.5 : 1,
@@ -118,7 +118,7 @@ const Nav = () => {
   }, []);
 
   return (
-    <nav className="fixed left-0 top-0 z-20 flex w-full justify-between p-[30px]">
+    <nav className="fixed left-0 top-0 z-20 flex w-full items-center justify-between p-[30px]">
       <img
         src="/logo.png"
         alt=""
