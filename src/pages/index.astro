@@ -3,6 +3,34 @@ import Layout from "../layouts/Layout.astro";
 import Heading from "../components/Heading.astro";
 import Section from "../layouts/Section.astro";
 import Toolbox from "../components/Toolbox.astro";
+import MagneticButton from "../components/MagneticButton";
+
+const projects = [
+  {
+    title: "Thundr",
+    subtitle: "note app",
+    description:
+      "Thundr is a note app, created using T3 stack. There are different types of notes you can create, including markdown note, todo list and even decision tree.",
+    github: "https://github.com/liioan/thundr",
+    website: "https://thundr.vercel.app",
+  },
+  {
+    title: "Hard Code Cafe",
+    subtitle: "restaurant website",
+    description:
+      "This website was created as a school project. It is one of my first projects made with React. I used Framer Motion library for animations.",
+    github: "https://github.com/liioan/hard-code-cafe",
+    website: "https://hardcodecafe.netlify.app",
+  },
+  {
+    title: "FeastBits",
+    subtitle: "catering website",
+    description:
+      "FeastBits is another school project. It uses React on fontend, and Laravel on backend. I also used supabase for file storage.   ",
+    github: "https://github.com/liioan/feastbits",
+    website: null,
+  },
+];
 ---
 
 <style is:global>
@@ -77,6 +105,42 @@ import Toolbox from "../components/Toolbox.astro";
     <Heading>Toolbox</Heading>
     <div class="flex w-full items-center justify-center 2xl:mt-[85px]">
       <Toolbox />
+    </div>
+  </Section>
+  <Section id="projects">
+    <Heading>Projects</Heading>
+    <div
+      class="relative flex w-full flex-col items-center justify-center gap-[30px] after:absolute after:left-0 after:top-0 after:-z-10 after:h-full after:w-full after:-translate-y-[250px] after:scale-110 after:bg-[url('/gradient.png')] after:bg-contain after:bg-center after:bg-no-repeat after:opacity-40 after:content-[''] md:flex-wrap lg:gap-[20px] 2xl:mt-[85px] 2xl:flex-row 2xl:after:-translate-x-[200px] 2xl:after:translate-y-[100px] 2xl:after:scale-150"
+    >
+      {
+        projects.map((project) => (
+          <div class="flex max-w-md flex-col justify-between gap-10 rounded-[20px] border-2 border-[#f5f5f5a0] bg-gradient-to-br from-[#f5f5f50f] p-10">
+            <div class="flex flex-col gap-2">
+              <h2 class="text-[40px] font-bold text-white">{project.title}</h2>
+              <h3 class="text-[20px] font-semibold text-primary">
+                {project.subtitle}
+              </h3>
+            </div>
+            <p class="font-content text-[20px] font-semibold text-white">
+              {project.description}
+            </p>
+            <div class="flex gap-[25px]">
+              <MagneticButton client:only>
+                <a href={project.github} class="hide-cursor">
+                  <img src="/github2.png" alt="github" />
+                </a>
+              </MagneticButton>
+              {project.website && (
+                <MagneticButton client:only>
+                  <a href={project.website} class="hide-cursor">
+                    <img src="/external.png" alt="external" />
+                  </a>
+                </MagneticButton>
+              )}
+            </div>
+          </div>
+        ))
+      }
     </div>
   </Section>
 </Layout>
