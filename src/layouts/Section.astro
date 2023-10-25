@@ -2,13 +2,16 @@
 interface Props {
   id: string;
   className?: string;
+  height?: "min" | "full";
 }
 
-const { className = "", id } = Astro.props;
+const { className = "", id, height = "full" } = Astro.props;
 ---
 
 <section
-  class={`flex min-h-screen flex-col items-center gap-20 overflow-x-clip pt-24 xl:items-start xl:px-[220px] 2xl:justify-center 2xl:gap-0 ${className}`}
+  class={`flex flex-col items-center gap-20 overflow-x-clip pt-24 xl:items-start xl:px-[220px] 2xl:justify-center 2xl:gap-0 ${
+    height === "min" ? "h-min" : "min-h-screen"
+  } ${className}`}
   id={id}
 >
   <slot />
