@@ -40,6 +40,15 @@ const projects: projectType[] = [
     website: null,
   },
 ];
+
+type contactOption = { img: string; url: string };
+
+const contactOptions: contactOption[] = [
+  { img: "/twitter.png", url: "twitter" },
+  { img: "/messenger.png", url: "messenger" },
+  { img: "/github.png", url: "github" },
+  { img: "/linkedin.png", url: "linkedin" },
+];
 ---
 
 <style is:global>
@@ -129,5 +138,41 @@ const projects: projectType[] = [
         class="text-primary">github</a
       > profile
     </p>
+  </Section>
+  <Section
+    id="contact"
+    className="relative after:absolute after:right-0 after:top-0 after:-z-10 after:h-full after:w-full after:-translate-y-[250px] after:scale-110 after:bg-[url('/gradient.png')] after:bg-contain after:bg-center after:bg-no-repeat after:opacity-40 after:content-[''] 2xl:after:translate-x-[500px] 2xl:after:translate-y-[100px]"
+  >
+    <Heading>Contact</Heading>
+    <p
+      class="relative mt-20 w-[70%] max-w-2xl font-content text-2xl font-bold text-white"
+    >
+      Got an exciting project? Reach out via email or instant message for a
+      quick connection! Let's make it a success.
+    </p>
+    <div
+      class="flex flex-col items-center justify-center gap-[25px] lg:flex-row 2xl:mt-20"
+    >
+      <MagneticButton
+        className="hide-cursor h-14 w-40 rounded-[10px] border-2 border-primary bg-background text-2xl font-bold text-white transition-colors duration-200 hover:bg-primary hover:text-black"
+        client:only
+      >
+        <a href="mailto:dev.davidbijok@gmail.com">email</a>
+      </MagneticButton>
+      <div class="flex items-center justify-center gap-[25px]">
+        {
+          contactOptions.map((option) => (
+            <MagneticButton
+              className="icon hide-cursor flex h-[50px] w-[50px] items-center justify-center rounded-full opacity-50 transition-colors duration-200 hover:bg-primary hover:opacity-100"
+              client:only
+            >
+              <a href={option.url}>
+                <img src={option.img} alt="" />
+              </a>
+            </MagneticButton>
+          ))
+        }
+      </div>
+    </div>
   </Section>
 </Layout>
