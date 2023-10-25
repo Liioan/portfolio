@@ -125,14 +125,16 @@ const contactOptions: contactOption[] = [
       <Toolbox />
     </div>
   </Section>
-  <Section id="projects">
+  <Section id="projects" className="gap-[10px]">
     <Heading>Projects</Heading>
     <div
       class="relative flex w-full flex-col items-center justify-center gap-[30px] after:absolute after:left-0 after:top-0 after:-z-10 after:h-full after:w-full after:-translate-y-[250px] after:scale-110 after:bg-[url('/gradient.png')] after:bg-contain after:bg-center after:bg-no-repeat after:opacity-40 after:content-[''] lg:flex-row lg:flex-wrap lg:gap-[20px] 2xl:mt-[85px] 2xl:after:-translate-x-[200px] 2xl:after:translate-y-[100px] 2xl:after:scale-150"
     >
       {projects.map((project) => <Project project={project} />)}
     </div>
-    <p class="mt-16 font-content text-[20px] font-semibold text-white">
+    <p
+      class="mt-16 w-[80%] text-center font-content text-[20px] font-semibold text-white 2xl:text-left"
+    >
       If you want to see more of my projects, head to my <a
         href="https://github.com/liioan"
         class="text-primary">github</a
