@@ -17,9 +17,9 @@ const Anchor = ({ text, iteration }: AnchorProps) => {
   return (
     <motion.li
       className="hide-cursor flex w-full justify-end text-[32px] font-semibold text-white opacity-50 transition-opacity duration-200 hover:opacity-100"
-      initial={{ opacity: 0, x: 100 }}
-      animate={{ opacity: 0.5, x: 0 }}
-      transition={{ duration: 0.5, delay: 0.2 * iteration, ease: "backOut" }}
+      initial={{ x: 200 }}
+      animate={{ x: 0 }}
+      transition={{ duration: 1, delay: 0.2 * iteration, ease: "backOut" }}
     >
       <MagneticButton>
         <a
