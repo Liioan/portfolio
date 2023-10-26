@@ -8,13 +8,19 @@ const anchors = ["about", "toolbox", "projects", "contact"];
 
 interface AnchorProps {
   text: string;
+  iteration: number;
 }
 
-const Anchor = ({ text }: AnchorProps) => {
+const Anchor = ({ text, iteration }: AnchorProps) => {
   const { lenis } = useLenis();
 
   return (
-    <li className="hide-cursor flex w-full justify-end text-[32px] font-semibold text-white opacity-50 transition-opacity duration-200 hover:opacity-100">
+    <motion.li
+      className="hide-cursor flex w-full justify-end text-[32px] font-semibold text-white opacity-50 transition-opacity duration-200 hover:opacity-100"
+      initial={{ opacity: 0, x: 100 }}
+      animate={{ opacity: 0.5, x: 0 }}
+      transition={{ duration: 0.5, delay: 0.2 * iteration, ease: "backOut" }}
+    >
       <MagneticButton>
         <a
           href={`#${text}`}
@@ -25,15 +31,15 @@ const Anchor = ({ text }: AnchorProps) => {
           {text}
         </a>
       </MagneticButton>
-    </li>
+    </motion.li>
   );
 };
 
 const DesktopNav = () => {
   return (
     <ul className="flex w-min flex-col justify-end">
-      {anchors.map((anchor) => (
-        <Anchor text={anchor} key={anchor} />
+      {anchors.map((anchor, i) => (
+        <Anchor text={anchor} iteration={i + 1} key={anchor} />
       ))}
     </ul>
   );
@@ -92,8 +98,8 @@ const MobileNav = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
           >
-            {anchors.map((anchor) => (
-              <Anchor key={anchor} text={anchor} />
+            {anchors.map((anchor, i) => (
+              <Anchor iteration={i} key={anchor} text={anchor} />
             ))}
           </motion.ul>
         )}
@@ -118,11 +124,14 @@ const Nav = () => {
   }, []);
 
   return (
-    <nav className="fixed left-0 top-0 z-20 flex w-full items-center justify-between p-[30px]">
-      <img
+    <nav className="fixed left-0 top-0 z-20 flex w-full items-center justify-between p-[30px] sm:items-start">
+      <motion.img
         src="/logo.png"
         alt=""
         className="h-[47px] w-[47px] sm:h-[67px] sm:w-[67px]"
+        initial={{ opacity: 0, y: -100 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1, ease: "backOut" }}
       />
       {isMobile ? <MobileNav /> : <DesktopNav />}
     </nav>

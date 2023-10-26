@@ -19,9 +19,19 @@ module.exports = {
           "0%": { opacity: 0 },
           "100%": { opacity: 1 },
         },
+        fadeIn2: {
+          "0%": { opacity: 0 },
+          "100%": { opacity: 0.5 },
+        },
+        line: {
+          "0%": { height: 0 },
+          "100%": { height: "85%" },
+        },
       },
       animation: {
         fadeIn: "fadeIn 5s",
+        fadeIn2: "fadeIn2 2s",
+        line: "line 2s 1",
       },
       gridTemplateRows: {
         myGrid: "repeat(auto-fill, minmax(150px, 1fr))",

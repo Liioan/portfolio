@@ -77,33 +77,146 @@ const contactOptions: contactOption[] = [
   }
 </style>
 
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+  gsap.registerPlugin(ScrollTrigger);
+
+  const heroItems = document.querySelectorAll(".hero-text");
+
+  heroItems.forEach((item, i) => {
+    gsap.from(item, {
+      delay: 0.5 + 0.25 * i,
+      duration: 0.5,
+      opacity: 0,
+      x: -100,
+      stagger: 0.25,
+      ease: "power3",
+    });
+  });
+
+  gsap.from(".about-me-text", {
+    scrollTrigger: {
+      trigger: "#about",
+      start: "top 60%",
+      end: "bottom 40%",
+      scrub: true,
+    },
+    opacity: 0,
+    x: -100,
+    ease: "power3",
+  });
+
+  gsap.from(".my-face", {
+    scrollTrigger: {
+      trigger: "#about",
+      start: "top 40%",
+      end: "bottom 60%",
+      scrub: true,
+    },
+    opacity: 0,
+    x: 100,
+    ease: "power3",
+  });
+
+  const headings = ["about", "toolbox", "projects", "contact"];
+
+  headings.forEach((heading) => {
+    gsap.from(`#${heading}-heading`, {
+      scrollTrigger: {
+        trigger: `#${heading}`,
+        start: "top 80%",
+        end: "bottom 20%",
+        scrub: true,
+      },
+      opacity: 0,
+      y: -100,
+      ease: "power3",
+    });
+  });
+
+  const projects = document.querySelectorAll(".project");
+
+  projects.forEach((project, i) => {
+    gsap.from(project, {
+      scrollTrigger: {
+        trigger: `#projects`,
+        start: `top ${80 * (i * 0.25)}%`,
+        end: `bottom 80%`,
+        scrub: true,
+      },
+      opacity: 0,
+      x: -100,
+      ease: "power3",
+    });
+  });
+
+  gsap.from(".github", {
+    scrollTrigger: {
+      trigger: `#projects`,
+      start: `50% 50%`,
+      end: `bottom 50%`,
+      scrub: true,
+    },
+    opacity: 0,
+    y: 100,
+    ease: "power3",
+  });
+
+  gsap.from(".contact-text", {
+    scrollTrigger: {
+      trigger: `#contact`,
+      start: `-20% 50%`,
+      end: `40% 50%`,
+      scrub: true,
+    },
+    opacity: 0,
+    x: -100,
+    ease: "power3",
+  });
+
+  gsap.from(".contact-links", {
+    scrollTrigger: {
+      trigger: `#contact`,
+      start: `-20% 50%`,
+      end: `45% 50%`,
+      scrub: true,
+    },
+    opacity: 0,
+    y: 100,
+    ease: "power3",
+  });
+</script>
+
 <Layout title="David Bijok">
   <main
     class="relative flex h-screen items-center justify-center before:absolute before:left-0 before:-z-10 before:h-full before:w-full before:animate-fadeIn before:bg-[url('/hero_gradient.png')] before:bg-cover before:bg-center before:bg-no-repeat before:content-[''] after:absolute after:left-0 after:top-0 after:-z-10 after:h-full after:w-full after:bg-[url('/waves.png')] after:bg-cover after:bg-center after:content-[''] lg:before:bg-contain xl:justify-start xl:px-[220px]"
   >
     <header
-      class="relative -translate-y-10 text-text before:absolute before:left-0 before:-translate-x-3 before:-translate-y-4 before:font-content before:opacity-50 before:content-['<h1>'] after:absolute after:right-0 after:translate-x-3 after:font-content after:opacity-50 after:content-['</h1>'] lg:before:-translate-x-[52px] lg:after:left-0 lg:after:-translate-x-14"
+      class="before:animate-fadeIn2 after:animate-fadeIn2 relative -translate-y-10 text-text before:absolute before:left-0 before:-translate-x-3 before:-translate-y-4 before:font-content before:opacity-50 before:content-['<h1>'] after:absolute after:right-0 after:translate-x-3 after:font-content after:opacity-50 after:content-['</h1>'] lg:before:-translate-x-[52px] lg:after:left-0 lg:after:-translate-x-14"
     >
       <h1
-        class="relative flex flex-col font-bold before:absolute before:hidden before:h-[90%] before:w-[2px] before:-translate-x-8 before:translate-y-[5%] before:bg-white before:opacity-50 before:content-[''] lg:before:block"
+        class="before:animate-line relative flex flex-col justify-center font-bold before:absolute before:hidden before:h-[85%] before:w-[2px] before:-translate-x-8 before:bg-white before:opacity-50 before:content-[''] lg:before:block"
       >
-        <span class="text-[32px] sm:text-[44px] lg:text-[64px]"> Hi!</span>
-        <span class="text-[48px] sm:text-[76px] lg:text-[96px]">
+        <span class="hero-text text-[32px] sm:text-[44px] lg:text-[64px]">
+          Hi!</span
+        >
+        <span class="hero-text text-[48px] sm:text-[76px] lg:text-[96px]">
           I'm David,</span
         >
-        <span class="text-[32px] sm:text-[44px] lg:text-[64px]">
+        <span class="hero-text text-[32px] sm:text-[44px] lg:text-[64px]">
           a frontend developer</span
         >
       </h1>
     </header>
   </main>
   <Section id="about" height="min">
-    <Heading>About</Heading>
+    <Heading id="about-heading">About</Heading>
     <div
       class="flex flex-col items-center justify-center gap-20 2xl:flex-row 2xl:gap-60"
     >
       <p
-        class="w-[80%] max-w-[850px] text-center font-content text-lg font-semibold text-text md:text-2xl lg:text-left"
+        class="about-me-text w-[80%] max-w-[850px] text-center font-content text-lg font-semibold text-text md:text-2xl lg:text-left"
       >
         I am a passionate Web Developer and Designer based in Poland. I started
         coding in the summer of 2022. Since then, I have designed and built a
@@ -112,7 +225,7 @@ const contactOptions: contactOption[] = [
         backend development.
       </p>
       <div
-        class="relative z-10 flex aspect-square max-h-[425px] w-[80%] max-w-[425px] items-center justify-center after:absolute after:left-0 after:top-0 after:-z-10 after:h-full after:w-full after:rotate-[-70deg] after:scale-125 after:bg-[url('/gradient.png')] after:bg-cover after:bg-center after:opacity-70 after:content-[''] lg:min-h-[425px] lg:min-w-[425px] 2xl:after:h-[1200px] 2xl:after:w-[1200px] 2xl:after:-translate-x-[450px] 2xl:after:-translate-y-[450px] 2xl:after:scale-75"
+        class="my-face relative z-10 flex aspect-square max-h-[425px] w-[80%] max-w-[425px] items-center justify-center after:absolute after:left-0 after:top-0 after:-z-10 after:h-full after:w-full after:rotate-[-70deg] after:scale-125 after:bg-[url('/gradient.png')] after:bg-cover after:bg-center after:opacity-70 after:content-[''] lg:min-h-[425px] lg:min-w-[425px] 2xl:after:h-[1200px] 2xl:after:w-[1200px] 2xl:after:-translate-x-[450px] 2xl:after:-translate-y-[450px] 2xl:after:scale-75"
       >
         <img
           src="/profile_picture.png"
@@ -123,20 +236,20 @@ const contactOptions: contactOption[] = [
     </div>
   </Section>
   <Section id="toolbox">
-    <Heading>Toolbox</Heading>
+    <Heading id="toolbox-heading">Toolbox</Heading>
     <div class="flex w-full items-center justify-center 2xl:mt-[85px]">
       <Toolbox />
     </div>
   </Section>
   <Section id="projects" className="2xl:gap-[10px]">
-    <Heading>Projects</Heading>
+    <Heading id="projects-heading">Projects</Heading>
     <div
       class="relative flex w-full flex-col items-center justify-center gap-[30px] after:absolute after:left-0 after:top-0 after:-z-10 after:h-full after:w-full after:-translate-y-[250px] after:scale-110 after:bg-[url('/gradient.png')] after:bg-contain after:bg-center after:bg-no-repeat after:opacity-40 after:content-[''] lg:flex-row lg:flex-wrap lg:gap-[20px] 2xl:mt-[85px] 2xl:after:-translate-x-[200px] 2xl:after:translate-y-[100px] 2xl:after:scale-150"
     >
       {projects.map((project) => <Project project={project} />)}
     </div>
     <p
-      class="mt-4 w-[80%] text-center font-content text-[20px] font-semibold text-white lg:w-full 2xl:mt-8"
+      class="github mt-4 w-[80%] text-center font-content text-[20px] font-semibold text-white lg:w-full 2xl:mt-8"
     >
       If you want to see more of my projects, head to my <a
         href="https://github.com/liioan"
@@ -149,15 +262,15 @@ const contactOptions: contactOption[] = [
     className="relative after:absolute after:right-0 after:top-0 after:-z-10 after:h-full after:w-full after:-translate-y-[250px] after:scale-150 after:bg-[url('/gradient.png')] after:bg-contain after:bg-center after:bg-no-repeat after:opacity-40 after:content-[''] 2xl:after:translate-x-[500px] 2xl:after:translate-y-[100px]"
     height="min"
   >
-    <Heading>Contact</Heading>
+    <Heading id="contact-heading">Contact</Heading>
     <p
-      class="w-[70%] max-w-2xl text-center font-content text-lg font-semibold text-text md:text-2xl xl:text-left 2xl:mt-16"
+      class="contact-text w-[70%] max-w-2xl text-center font-content text-lg font-semibold text-text md:text-2xl xl:text-left 2xl:mt-16"
     >
       Got an exciting project? Reach out via email or instant message for a
       quick connection! Let's make it a success.
     </p>
     <div
-      class="flex flex-col items-center justify-center gap-[25px] lg:flex-row 2xl:mt-20"
+      class="contact-links flex flex-col items-center justify-center gap-[25px] lg:flex-row 2xl:mt-20"
     >
       <MagneticButton
         className="hide-cursor h-14 w-40 rounded-[10px] border-2 border-primary bg-background text-2xl font-bold text-white transition-colors duration-200 hover:bg-primary hover:text-black"

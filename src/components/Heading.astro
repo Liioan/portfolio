@@ -1,5 +1,14 @@
+---
+interface Props {
+  id?: string;
+}
+
+const { id = "" } = Astro.props;
+---
+
 <header
   class="relative -translate-y-10 text-text before:absolute before:left-0 before:-translate-x-3 before:-translate-y-4 before:font-content before:opacity-50 before:content-['<h2>'] after:absolute after:right-0 after:translate-x-3 after:font-content after:opacity-50 after:content-['</h2>'] lg:before:-translate-x-[52px] lg:after:left-0 lg:after:-translate-x-14"
+  id={id}
 >
   <h2
     class="relative flex flex-col text-[48px] font-bold before:absolute before:hidden before:h-[80%] before:w-[2px] before:-translate-x-8 before:translate-y-[15%] before:bg-white before:opacity-50 before:content-[''] lg:before:block"

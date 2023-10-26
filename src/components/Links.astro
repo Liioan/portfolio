@@ -24,12 +24,43 @@ const links: Link[] = [
   }
 </style>
 
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+  gsap.registerPlugin(ScrollTrigger);
+
+  gsap.to(".links-wrapper", {
+    scrollTrigger: {
+      trigger: `#contact`,
+      start: `-60% 50%`,
+      end: `50% 50%`,
+      scrub: true,
+    },
+    opacity: 0,
+    x: -100,
+    ease: "power3",
+  });
+
+  const links = document.querySelectorAll(".link");
+
+  links.forEach((link, i) => {
+    gsap.from(link, {
+      delay: 1 + 0.25 * i,
+      duration: 0.5,
+      opacity: 0,
+      x: -100,
+      stagger: 0.25,
+      ease: "power3",
+    });
+  });
+</script>
+
 <ul
-  class="fixed bottom-[30px] left-[5px] z-10 flex flex-col gap-[10px] sm:left-[30px]"
+  class="links-wrapper fixed bottom-[30px] left-[5px] z-10 flex flex-col gap-[10px] sm:left-[30px]"
 >
   {
     links.map((link) => (
-      <li>
+      <li class="link">
         <MagneticButton
           className="icon hide-cursor flex h-[50px] w-[50px] items-center justify-center rounded-full opacity-50 transition-colors duration-200 hover:bg-primary hover:opacity-100"
           client:only
