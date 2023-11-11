@@ -117,13 +117,13 @@
   const easterEgg = document.querySelector("#easter-egg");
 
   const audio = new Audio("https://czarnojan3.netlify.app/funkytown.mp3");
+  audio.volume = 0.5;
 
   goImg?.addEventListener("click", () => {
     timesClicked++;
     if (timesClicked == 2) goImg.src = "/tools/go2.png";
     if (timesClicked == 10) {
       easterEgg?.classList.remove("my-hidden");
-      audio.volume = 0.5;
       audio.play();
       setTimeout(() => {
         easterEgg?.classList.add("my-hidden");
@@ -141,7 +141,7 @@
   }
 
   #easter-egg.my-hidden {
-    translate: 100% 0;
+    translate: 150% 0;
   }
 </style>
 
