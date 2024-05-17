@@ -11,16 +11,27 @@ export type projectType = {
   subtitle: string;
   description: string;
   github: string;
+  logo: string;
   website: string | null;
 };
 
 const projects: projectType[] = [
+  {
+    title: "Faek",
+    subtitle: "typescript generation tool",
+    description:
+      "Faek is a simple cli typescript generation tool that generates mock arrays for you. It has predefined fields so it work better than Lorem Ipsum. I wrote it in Golang with lipgloss and bubbletea libraries.",
+    github: "https://github.com/liioan/faek",
+    logo: "/public/golang_logo.png",
+    website: null,
+  },
   {
     title: "Thundr",
     subtitle: "note app",
     description:
       "Thundr is a note app, created using T3 stack. There are different types of notes you can create, including markdown note, todo list and even decision tree.",
     github: "https://github.com/liioan/thundr",
+    logo: "/public/typescript_logo.png",
     website: "https://thundr.vercel.app",
   },
   {
@@ -29,6 +40,7 @@ const projects: projectType[] = [
     description:
       "This website was created as a school project. It is one of my first projects made with React. I used Framer Motion library for animations.",
     github: "https://github.com/liioan/hard-code-cafe",
+    logo: "/public/javascript_logo.png",
     website: "https://hardcodecafe.netlify.app",
   },
   {
@@ -37,6 +49,7 @@ const projects: projectType[] = [
     description:
       "FeastBits is another school project. It uses React on fontend, and Laravel on backend. I also used supabase for file storage.   ",
     github: "https://github.com/liioan/feastbits",
+    logo: "/public/typescript_logo.png",
     website: null,
   },
 ];
@@ -59,6 +72,10 @@ const contactOptions: contactOption[] = [
 
   * {
     cursor: none !important;
+  }
+
+  body:has(.pdb) > * {
+    outline: 4px solid rgba(0, 255, 0, 0.3);
   }
 
   .outline {
@@ -142,8 +159,8 @@ const contactOptions: contactOption[] = [
     gsap.from(project, {
       scrollTrigger: {
         trigger: `#projects`,
-        start: `top ${80 * (i * 0.2)}%`,
-        end: `bottom 80%`,
+        start: `top ${80 * (i * 0.1)}%`,
+        end: `top ${20 * (-i * 0.8)}%`,
         scrub: true,
       },
       opacity: 0,
@@ -245,7 +262,7 @@ const contactOptions: contactOption[] = [
   <Section id="projects" className="2xl:gap-[10px]">
     <Heading id="projects-heading">Projects</Heading>
     <div
-      class="relative flex w-full flex-col items-center justify-center gap-[30px] after:absolute after:left-0 after:top-0 after:-z-10 after:h-full after:w-full after:-translate-y-[250px] after:scale-110 after:bg-[url('/gradient.webp')] after:bg-contain after:bg-center after:bg-no-repeat after:opacity-40 after:content-[''] lg:flex-row lg:flex-wrap lg:gap-[20px] 2xl:mt-[85px] 2xl:after:-translate-x-[200px] 2xl:after:translate-y-[100px] 2xl:after:scale-150"
+      class="relative flex w-full flex-col items-center justify-center gap-[30px] after:absolute after:left-0 after:top-0 after:-z-10 after:h-full after:w-full after:-translate-y-[250px] after:scale-110 after:bg-[url('/gradient.webp')] after:bg-contain after:bg-center after:bg-no-repeat after:opacity-40 after:content-[''] md:justify-start lg:flex-row lg:flex-wrap lg:gap-[20px] 2xl:mt-[85px] 2xl:after:-translate-x-[200px] 2xl:after:translate-y-[100px] 2xl:after:scale-150"
     >
       {projects.map((project) => <Project project={project} />)}
     </div>
@@ -296,7 +313,7 @@ const contactOptions: contactOption[] = [
     </div>
   </Section>
   <footer
-    class="mt-20 flex h-16 translate-y-[70%] items-end justify-center font-bold text-text opacity-20"
+    class="mt-5 flex h-16 -translate-y-[70%] items-end justify-center font-bold text-text opacity-20 md:mt-20 md:translate-y-[70%]"
   >
     designed and coded by me
   </footer>
