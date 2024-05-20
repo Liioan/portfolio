@@ -12,7 +12,8 @@ import Nav from "../components/Nav";
 const description =
   "I am a passionate Web Developer and Designer based in Poland. I use mainly Typescript, React and Golang";
 
-const img = "/meta_logo.png";
+const bigImg = "/meta_img_big.png";
+const smallImg = "/meta_img_small.png";
 ---
 
 <html lang="en">
@@ -28,13 +29,13 @@ const img = "/meta_logo.png";
     <meta name="generator" content={Astro.generator} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content={img} />
+    <meta property="og:image" content={bigImg} />
     <meta property="og:url" content="https://davidbijok.vercel.app" />
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={img} />
+    <meta name="twitter:image" content={bigImg} />
     <title>{title}</title>
   </head>
   <body
