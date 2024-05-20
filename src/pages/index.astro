@@ -54,15 +54,28 @@ const projects: projectType[] = [
   },
 ];
 
-type contactOption = { img: string; url: string };
+type contactOption = { img: string; url: string; title: string };
 
 const contactOptions: contactOption[] = [
-  { img: "/twitter.png", url: "https://twitter.com/DavidBijok" },
-  { img: "/messenger.png", url: "https://www.messenger.com/t/100014974624014" },
-  { img: "/github.png", url: "https://github.com/liioan" },
+  {
+    img: "/twitter.png",
+    url: "https://twitter.com/DavidBijok",
+    title: "David Bijok twitter account",
+  },
+  {
+    img: "/messenger.png",
+    url: "https://www.messenger.com/t/100014974624014",
+    title: "David Bijok messenger account",
+  },
+  {
+    img: "/github.png",
+    url: "https://github.com/liioan",
+    title: "David Bijok github account",
+  },
   {
     img: "/linkedin.png",
     url: "https://www.linkedin.com/in/dawid-bijok-a83a95285/",
+    title: "David Bijok linkedin account",
   },
 ];
 ---
@@ -206,7 +219,7 @@ const contactOptions: contactOption[] = [
   });
 </script>
 
-<Layout title="David Bijok">
+<Layout title="David Bijok | Frontend developer">
   <main
     class="relative flex h-screen items-center justify-center before:absolute before:left-0 before:-z-10 before:h-full before:w-full before:animate-fadeIn before:bg-[url('/hero_gradient.webp')] before:bg-cover before:bg-center before:bg-no-repeat before:content-[''] after:absolute after:left-0 after:top-0 after:-z-10 after:h-full after:w-full after:bg-[url('/waves.webp')] after:bg-cover after:bg-center after:content-[''] lg:before:bg-contain xl:justify-start xl:px-[220px]"
   >
@@ -303,8 +316,8 @@ const contactOptions: contactOption[] = [
               className="icon hide-cursor flex h-[50px] w-[50px] items-center justify-center rounded-full opacity-50 transition-colors duration-200 hover:bg-primary hover:opacity-100"
               client:only
             >
-              <a href={option.url}>
-                <img src={option.img} alt="" />
+              <a href={option.url} title={option.title}>
+                <img src={option.img} alt={option.title} />
               </a>
             </MagneticButton>
           ))

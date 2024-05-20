@@ -37,14 +37,22 @@ const { project } = Astro.props;
   </p>
   <div class="flex gap-[25px]">
     <MagneticButton client:only>
-      <a href={project.github} class="hide-cursor">
+      <a
+        href={project.github}
+        title={`${project.subtitle} github page`}
+        class="hide-cursor"
+      >
         <img src="/github2.png" alt="github" />
       </a>
     </MagneticButton>
     {
       project.website && (
         <MagneticButton client:only>
-          <a href={project.website} class="hide-cursor">
+          <a
+            href={project.website}
+            title={`${project.subtitle} website`}
+            class="hide-cursor"
+          >
             <img src="/external.png" alt="external" />
           </a>
         </MagneticButton>
