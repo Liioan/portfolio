@@ -1,19 +1,19 @@
 ---
-import MagneticButton from "./MagneticButton.tsx";
+import MagneticButton from './MagneticButton.tsx';
 
 type Link = { url: string; img: string; alt: string };
 
 const links: Link[] = [
   {
-    url: "https://twitter.com/DavidBijok",
-    img: "/twitter.png",
-    alt: "twitter logo",
+    url: 'https://twitter.com/DavidBijok',
+    img: '/twitter.webp',
+    alt: 'twitter logo',
   },
-  { url: "https://github.com/Liioan", img: "/github.png", alt: "github logo" },
+  { url: 'https://github.com/Liioan', img: '/github.webp', alt: 'github logo' },
   {
-    url: "https://www.linkedin.com/in/dawid-bijok-a83a95285/",
-    img: "/linkedin.png",
-    alt: "linkedin logo",
+    url: 'https://www.linkedin.com/in/dawid-bijok-a83a95285/',
+    img: '/linkedin.webp',
+    alt: 'linkedin logo',
   },
 ];
 ---
@@ -25,11 +25,11 @@ const links: Link[] = [
 </style>
 
 <script>
-  import { gsap } from "gsap";
-  import { ScrollTrigger } from "gsap/ScrollTrigger";
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
   gsap.registerPlugin(ScrollTrigger);
 
-  gsap.to(".links-wrapper", {
+  gsap.to('.links-wrapper', {
     scrollTrigger: {
       trigger: `#contact`,
       start: `-60% 50%`,
@@ -38,10 +38,10 @@ const links: Link[] = [
     },
     opacity: 0,
     x: -100,
-    ease: "power3",
+    ease: 'power3',
   });
 
-  const links = document.querySelectorAll(".link");
+  const links = document.querySelectorAll('.link');
 
   links.forEach((link, i) => {
     gsap.from(link, {
@@ -50,19 +50,19 @@ const links: Link[] = [
       opacity: 0,
       x: -100,
       stagger: 0.25,
-      ease: "power3",
+      ease: 'power3',
     });
   });
 </script>
 
 <ul
-  class="links-wrapper fixed bottom-[30px] left-[5px] z-10 flex flex-col gap-[10px] sm:left-[30px]"
+  class='links-wrapper fixed bottom-[30px] left-[5px] z-10 flex flex-col gap-[10px] sm:left-[30px]'
 >
   {
-    links.map((link) => (
-      <li class="link">
+    links.map(link => (
+      <li class='link'>
         <MagneticButton
-          className="icon hide-cursor flex h-[50px] w-[50px] items-center justify-center rounded-full opacity-50 transition-colors duration-200 hover:bg-primary hover:opacity-100"
+          className='icon hide-cursor flex h-[50px] w-[50px] items-center justify-center rounded-full opacity-50 transition-colors duration-200 hover:bg-primary hover:opacity-100'
           client:only
         >
           <a href={link.url}>

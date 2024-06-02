@@ -53,6 +53,7 @@ interface NavButtonProps {
 const NavButton = ({ isOpen, setIsOpen }: NavButtonProps) => {
   return (
     <button
+      aria-label="open menu"
       onClick={() => setIsOpen((prev) => !prev)}
       className="relative flex h-12 w-12 items-center justify-center"
     >
@@ -126,7 +127,7 @@ const Nav = () => {
   return (
     <nav className="fixed left-0 top-0 z-20 flex w-full items-center justify-between p-[30px] sm:items-start">
       <motion.img
-        src="/logo.png"
+        src="/logo.webp"
         alt=""
         className="h-[47px] w-[47px] sm:h-[67px] sm:w-[67px]"
         initial={{ opacity: 0, y: -100 }}
