@@ -58,16 +58,6 @@ type contactOption = { img: string; url: string; title: string };
 
 const contactOptions: contactOption[] = [
   {
-    img: '/twitter.webp',
-    url: 'https://twitter.com/DavidBijok',
-    title: 'David Bijok twitter account',
-  },
-  {
-    img: '/messenger.webp',
-    url: 'https://www.messenger.com/t/100014974624014',
-    title: 'David Bijok messenger account',
-  },
-  {
     img: '/github.webp',
     url: 'https://github.com/liioan',
     title: 'David Bijok github account',
@@ -219,7 +209,7 @@ const contactOptions: contactOption[] = [
   });
 </script>
 
-<Layout title='David Bijok | Frontend developer'>
+<Layout title='David Bijok | Web developer'>
   <main
     class="relative flex h-screen items-center justify-center before:absolute before:left-0 before:-z-10 before:h-full before:w-full before:animate-fadeIn before:bg-[url('/hero_gradient.webp')] before:bg-cover before:bg-center before:bg-no-repeat before:content-[''] after:absolute after:left-0 after:top-0 after:-z-10 after:h-full after:w-full after:bg-[url('/waves.webp')] after:bg-cover after:bg-center after:content-[''] lg:before:bg-contain xl:justify-start xl:px-[220px]"
   >
@@ -236,7 +226,7 @@ const contactOptions: contactOption[] = [
           I'm David,</span
         >
         <span class='hero-text text-[32px] sm:text-[44px] lg:text-[64px]'>
-          a frontend developer</span
+          a web developer</span
         >
       </h1>
     </header>
@@ -249,11 +239,11 @@ const contactOptions: contactOption[] = [
       <p
         class='about-me-text w-[80%] max-w-[850px] text-center font-content text-lg font-semibold text-text md:text-2xl lg:text-left'
       >
-        I am a passionate Web Developer and Designer based in Poland. I started
-        coding in the summer of 2022. Since then, I have designed and built a
-        few apps and websites from scratch using various tools and technologies.
-        Although I am primarily a frontend engineer, I have experience in
-        backend development.
+        I am a passionate Web Developer and Designer based in Silesia, Poland. I
+        started coding in the summer of 2022. Since then, I have designed and
+        built a few apps and websites from scratch using various tools and
+        technologies. Although I am primarily a frontend engineer, I have
+        experience in backend development.
       </p>
       <div
         class="my-face relative z-10 flex aspect-square max-h-[425px] w-[80%] max-w-[425px] items-center justify-center after:absolute after:left-0 after:top-0 after:-z-10 after:h-full after:w-full after:rotate-[-70deg] after:scale-125 after:bg-[url('/gradient.webp')] after:bg-cover after:bg-center after:opacity-70 after:content-[''] lg:min-h-[425px] lg:min-w-[425px] 2xl:after:h-[1200px] 2xl:after:w-[1200px] 2xl:after:-translate-x-[450px] 2xl:after:-translate-y-[450px] 2xl:after:scale-75"
@@ -261,7 +251,7 @@ const contactOptions: contactOption[] = [
         <img
           src='/profile_picture.webp'
           alt='my profile picture'
-          class='aspect-square w-[80%] lg:min-h-[425px] lg:min-w-[425px]'
+          class='aspect-square w-[80%] object-contain lg:min-h-[425px] lg:min-w-[425px]'
         />
       </div>
     </div>
@@ -273,7 +263,7 @@ const contactOptions: contactOption[] = [
     </div>
   </Section>
   <Section id='projects' className='2xl:gap-[10px]'>
-    <Heading id='projects-heading'>Projects</Heading>
+    <Heading id='projects-heading'>Personal projects</Heading>
     <div
       class="relative flex w-full flex-col items-center justify-center gap-[30px] after:absolute after:left-0 after:top-0 after:-z-10 after:h-full after:w-full after:-translate-y-[250px] after:scale-110 after:bg-[url('/gradient.webp')] after:bg-contain after:bg-center after:bg-no-repeat after:opacity-40 after:content-[''] md:justify-start lg:flex-row lg:flex-wrap lg:gap-[20px] 2xl:mt-[85px] 2xl:after:-translate-x-[200px] 2xl:after:translate-y-[100px] 2xl:after:scale-150"
     >
